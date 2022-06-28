@@ -7,6 +7,10 @@ console.log(listeKeycode)
 
 const ecran = document.querySelector('.ecran');
 
+const enter = document.querySelector('button[data-key="13"]');
+
+
+
 
 
 
@@ -20,8 +24,8 @@ document.addEventListener('keydown', (e) => {
 //toString transforme l'élément number en élément string
 
 document.addEventListener('click', (e) => {
-
-    const valeur = e.target.dataset.key;  
+    const valeur = e.target.dataset.key;
+    enter.focus();
     calculer(valeur);
 });
 
@@ -29,7 +33,7 @@ document.addEventListener('click', (e) => {
 //fonction calcule: fct qui récup le keycode de la touche et agit dessus
 
 const calculer = (valeur) => {
-    if(listeKeycode.includes(valeur)){
+    if (listeKeycode.includes(valeur)) {
         switch (valeur) {
             case '8':
                 ecran.textContent = "";
@@ -44,6 +48,7 @@ const calculer = (valeur) => {
                 const touche = touches[indexKeycode];
                 ecran.textContent += touche.innerHTML;
         }
+
     }
 }
 // ^ Include permet d'exclure les touches non incluses dans le tableau (ex: touche A);
@@ -53,7 +58,7 @@ const calculer = (valeur) => {
 
 
 window.addEventListener('error', (e) => {
-    alert('Une erreur est survenue dans votre calcul : '+ e.message);
+    alert('Une erreur est survenue dans votre calcul : ' + e.message);
 })
 
 // ^ permet d'afficher une alert d'erreur.  A VOIR POUR MODIFIER ET FAIRE APPARAITRE A L'ECRAN DIRECTEMENT !!
